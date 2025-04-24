@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Carga de Cronograma de Obra</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #007bff;
+    }
+
+    input[type="file"] {
+      width: 100%;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Subir Cronograma de Obra</h1>
+    <form id="upload-form">
+      <label for="file">Selecciona un archivo .xlsx o .mpp</label>
+      <input type="file" id="file" accept=".xlsx, .mpp" required />
+      <button type="submit">Cargar Cronograma</button>
+    </form>
+    <div id="resumen"></div>
+  </div>
+
+  <script>
+    document.getElementById('upload-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const file = document.getElementById('file').files[0];
+      if (!file) {
+        alert('Por favor selecciona un archivo');
+        return;
+      }
+      alert('Archivo recibido: ' + file.name);
+      // Aquí luego procesaremos el archivo
+    });
+  </script>
+</body>
+</html>
